@@ -119,7 +119,7 @@ function removeperson(which) {
 }
 
 
-function registerPerson (name, age, satp, sunp, satlunches, satboxes, sunlunches, sunboxes) {
+function registerPerson (name, age, satp, sunp, satlunches, satboxes, sunlunches, sunboxes, id) {
     var groupfamilyname = $("#groupfamilyname").val();
     var sat = satp;
     var sun = sunp;
@@ -139,11 +139,17 @@ function registerPerson (name, age, satp, sunp, satlunches, satboxes, sunlunches
     var email = $("#email").val();
     
     //updateCost();
-    
-    var totalcost = $("#totalcost").html();
+
     var center = $("#saicenter option:selected").html();
-    var payment = $("input[name=payment]:checked").val();
-    totalcost += " - " + payment;
+	var totalcost = "";
+	var payment = "";
+	
+	if ( id == 1 ) // only display cost for the group head
+	{
+		totalcost = $("#totalcost").html();
+		payment = $("input[name=payment]:checked").val();
+		totalcost += " - " + payment;
+	}
 
     $.ajax({
             url: "https://docs.google.com/forms/d/1QeCq3i5-yayVUalG8zULImKBt1IZpW4DN3dvWvldgbM/formResponse",
@@ -342,7 +348,7 @@ function postToGoogle() {
 				sunboxes = '1';
 		}
 		
-		registerPerson(name, age, sat, sun, satlunches, satboxes, sunlunches, sunboxes);
+		registerPerson(name, age, sat, sun, satlunches, satboxes, sunlunches, sunboxes, i);
     }
 
     /*
