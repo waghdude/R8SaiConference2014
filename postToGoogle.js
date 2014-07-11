@@ -56,13 +56,40 @@ function removeperson(which) {
 	
 	var name = "#nameparticipant" + which;
 	var age = "#ageparticipant" + which;
-	var sexM = "#gender" + which + "M";
-	var sexF = "#gender" + which + "F";
+	var childStats = "#childstats" + which;
+	var sexM = "#genderM" + which;
+	var sexF = "#genderF" + which;
 	var days = "#attending_sat" + which;
+	var attSat = "#attending_sat" + which;
+	var attSun = "#attending_sun" + which;
+	var child = "#ischild" + which;
+	var lunchSat = "#lunch_sat" + which;
+	var lunchSun = "#lunch_sun" + which;
+	var boxSat = "#box_sat" + which;
+	var boxSun = "#box_sun" + which;
 	
 	$(name).val("");
 	$(age).val("");
+
 	
+	$(attSat).prop('checked',"");
+	$(attSun).prop('checked',"");
+	$(child).prop('checked',"");
+	
+	$(childStats).slideUp(10);
+	
+	$(lunchSat).prop('checked',"");
+	$(lunchSun).prop('checked',"");
+	$(boxSat).prop('checked',"");
+	$(boxSun).prop('checked',"");
+	
+	$(sexM).prop('checked',"");
+	$(sexF).prop('checked',"");
+	
+	$(lunchSat).prop('disabled',"true");
+	$(lunchSun).prop('disabled',"true");
+	$(boxSat).prop('disabled',"true");
+	$(boxSun).prop('disabled',"true");
 	
 	$(person).slideUp();
 	$(nextaddpersonbutton).slideUp();
@@ -77,6 +104,7 @@ function removeperson(which) {
 				$(sexM).removeAttr("required");
 				$(sexF).removeAttr("required");
 				$(days).removeAttr("required");
+				
 				parsleyFormInstance.destroy(name);
 				parsleyFormInstance.destroy(age);
 				parsleyFormInstance.destroy(sexM);
