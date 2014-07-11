@@ -167,7 +167,7 @@ function updateCost() {
     
     var cost = 0;
     
-	console.log(totalcount);
+	//console.log(totalcount);
 	
 	var count = 0;
     var attending_sat = $("#daysattending-saturday").prop('checked');
@@ -245,7 +245,7 @@ function updateCost() {
 		}
 	}
 	
-	console.log(count);
+	//console.log(count);
 	cost = count * 10;
 	document.getElementById("test_id").value = cost;
     $("#totalcost").html("$"+cost);
@@ -257,25 +257,16 @@ setInterval(updateCost, 100);
 
 function postToGoogle() {
     
+    var i;
 	
-	
-	var satlunches = 1;
-	var sunlunches = 1;
-	
-	var satboxes = 1;
-	var sunboxes = 1;
-	
-    var i = 1;
-    for (i = 1; i <= 6; i += 1) {
-        var name = "#nameparticipant" + i;
-        var age = "#ageparticipant" + i;
-        
-		name = $(name).val().trim();
-		age = $(age).val();
+    for (i = 1; i <= 6; i += 1)
+	{
+        var nameField = "#nameparticipant" + i;
+        var age = " ";
 		
-		// For old people
-		if (isNaN(age)) {age = 99;}
-		
+		name = $(nameField).val().trim();
+		if ( name == "" )
+			break; // done - no more entries
 		
 		var issat = "#attending_sat" + i;
 		var issun = "#attending_sat" + i;
@@ -286,46 +277,44 @@ function postToGoogle() {
 		var satbox = "#box_sat" + i;
 		var sunbox = "#box_sun" + i;
 		
-		if (! ($("#ischild" + i).prop('checked'))) {
-			totalcount += 1;
+		if ( ($("#ischild" + i).prop('checked')))
+		{
+			//age = $("#sex_participant" + i).val() + " ";
+			age = $('input:radio[name=sex_participant'+i+']:checked').val() + " ";
+			age += $("#ageparticipant" + i).children(":selected").text();
+		}
+		else
+			age = " ";
+		
+		
+		var sat = '';
+		var sun = '';
+		var satlunches = '';
+		var satboxes = '';
+		var sunlunches = '';
+		var sunboxes = '';
+		
+		if ($(issat).prop('checked'))
+		{
+			sat = '1';
 			
-			// Attending both days?
-			if ($(issat).prop('checked') && $(issun).prop('checked')) {
-				totalcount += 1;
-			}
+			if ( $(satlunch).prop('checked') )
+				satlunches = '1';
+			if ( $(satbox).prop('checked') )
+				satboxes = '1';
 		}
 		
-		
-		var sat = 'No';
-		var sun = 'No';
-		
-		if ($(issat).prop('checked')) {
-			sat = 'Yes';
-			if ($(satlunch).prop('checked')) {
-				sat += ' Lunch';
-				satlunches += 1;
-			}
-			if ($(satbox).prop('checked')) {
-				sat += ' - Box';
-				satboxes += 1;
-			}
+		if ($(issun).prop('checked'))
+		{
+			sun = '1';
+			if ($(sunlunch).prop('checked'))
+				sunlunches = '1';
+				
+			if ($(sunbox).prop('checked'))
+				sunboxes = '1';
 		}
 		
-		if ($(issun).prop('checked')) {
-			sun = 'Yes';
-			if ($(sunlunch).prop('checked')) {
-				sun += ' Lunch';
-				sunlunches += 1;
-			}
-			if ($(sunbox).prop('checked')) {
-				sun += ' - Box';
-				sunboxes += 1;
-			}
-		}
-		
-        if (name != "" && age != "") {
-            registerPerson(name, age, sat, sun, satlunches, satboxes, sunlunches, sunboxes);
-        }
+		registerPerson(name, age, sat, sun, satlunches, satboxes, sunlunches, sunboxes);
     }
 
     /*
