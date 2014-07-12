@@ -6,6 +6,24 @@
 //totalpersonsattending
 var totalcount = 0;
 
+function countMeals(which)
+{
+	var lunchSat = "#lunch_sat" + which;
+	var lunchSun = "#lunch_sun" + which;
+	var boxSat = "#box_sat" + which;
+	var boxSun = "#box_sun" + which;
+	
+	var meals = 0;
+	
+	if ($(lunchSat).prop('checked'))	meals++;
+	if ($(lunchSun).prop('checked'))	meals++;
+	if ($(boxSat).prop('checked'))	meals++;
+	if ($(boxSun).prop('checked'))	meals++;
+	
+	return meals;
+	
+}
+
 function addperson(which) {
 	var person = "#person" + which;
 	var previousremovepersonbutton = "#removepersonbutton" + (which - 1);
@@ -24,6 +42,9 @@ function addperson(which) {
 	    return; // don't add another person if form thus far is invalid
 	}
 	
+	if ( countMeals(which-1) == 0 )
+		alert("You did not select any meals. Please confirm your meal selection.");
+
 	$(person).slideDown();
 	
 	if ($(nextremovepersonbutton).is(':hidden')) {
