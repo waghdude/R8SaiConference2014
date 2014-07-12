@@ -191,15 +191,9 @@ function registerPerson (name, age, satp, sunp, satlunches, satboxes, sunlunches
 function updateCost() {
     // Get all age fields
     // Update costfield
-    
-    var ages = new Array();
-    ages[0] = "18"; //$("#ageparticipant1").val().trim();
-    ages[1] = $("#ageparticipant2").html().value; //$("#ageparticipant2").val().trim();//
-    ages[2] = $("#ageparticipant3 option:selected").html();
-    ages[3] = $("#ageparticipant4 option:selected").html();
-    ages[4] = $("#ageparticipant5 option:selected").html();
-    
+  
     var cost = 0;
+	var adults = 0;
     
 	//console.log(totalcount);
 	
@@ -210,79 +204,72 @@ function updateCost() {
 	if ($("#attending_sat1").prop('checked')  && $("#attending_sun1").prop('checked')) {
 		count = 2;
 	}
-	
 	else if ($("#attending_sat1").prop('checked') ||  $("#attending_sun1").prop('checked')) {
 		count = 1;
 	}
 	
+	if ( count )
+		adults++;
 	
-	if ($("#attending_sat2").prop('checked')  && $("#attending_sun2").prop('checked')) {
+	if ( !($("#ischild2").prop('checked')) )
+	{
+		adults++;
+		if ($("#attending_sat2").prop('checked') )
+			count++;
 		
-		if (!($("#ischild2").prop('checked')) ) { //ages[1]
-			count += 2;
-		}
+		if ( $("#attending_sun2").prop('checked'))
+			count++;
 	}
 	
-	else if ($("#attending_sat2").prop('checked') ||  $("#attending_sun2").prop('checked')) {
-		//console.log($("#agepartcipant2").html().val());//console.log(document.getElementByID("ageparticipant2").value);// ("#ageparticipant2").val().trim());//
-		if (!($("#ischild2").prop('checked'))){//$("#ageparticipant2 option:selected").html() > 18 ){
-			count += 1;
-		}
-	}
-	if ($("#attending_sat3").prop('checked')  && $("#attending_sun3").prop('checked')) {
+	if ( !($("#ischild3").prop('checked')) )
+	{
+		adults++;
+		if ($("#attending_sat3").prop('checked') )
+			count++;
 		
-		if (!($("#ischild3").prop('checked'))) {
-			count += 2;
-		}
+		if ( $("#attending_sun3").prop('checked'))
+			count++;
+	}
+
+	if ( !($("#ischild4").prop('checked')) )
+	{
+		adults++;
+		if ($("#attending_sat4").prop('checked') )
+			count++;
+		
+		if ( $("#attending_sun4").prop('checked'))
+			count++;
+	}
+
+	if ( !($("#ischild5").prop('checked')) )
+	{
+		adults++;
+		if ($("#attending_sat5").prop('checked') )
+			count++;
+		
+		if ( $("#attending_sun5").prop('checked'))
+			count++;
 	}
 	
-	else if ($("#attending_sat3").prop('checked') ||  $("#attending_sun3").prop('checked')) {
-		if (!($("#ischild3").prop('checked'))) {
-			count += 1;
-		}
-	}
-	
-	if ($("#attending_sat4").prop('checked')  && $("#attending_sun4").prop('checked')) {
-		if (!($("#ischild4").prop('checked'))) {
-			count += 2;
-		}
-	}
-	
-	else if ($("#attending_sat4").prop('checked') ||  $("#attending_sun4").prop('checked')) {
-		if (!($("#ischild4").prop('checked'))) {
-			count += 1;
-		}
-	}
-	
-	if ($("#attending_sat5").prop('checked')  && $("#attending_sun5").prop('checked')) {
-		if (!($("#ischild5").prop('checked'))) {
-			count += 2;
-		}
-	}
-	
-	else if ($("#attending_sat5").prop('checked') ||  $("#attending_sun5").prop('checked')) {
-		if (!($("#ischild5").prop('checked'))) {
-			count += 1;
-		}
-	}
-	
-	
-	if ($("#attending_sat6").prop('checked')  && $("#attending_sun6").prop('checked')) {
-		if (!($("#ischild6").prop('checked'))) {
-			count += 2;
-		}
-	}
-	
-	else if ($("#attending_sat6").prop('checked') ||  $("#attending_sun6").prop('checked')) {
-		if (!($("#ischild6").prop('checked'))) {
-			count += 1;
-		}
+	if ( !($("#ischild6").prop('checked')) )
+	{
+		adults++;
+		if ($("#attending_sat6").prop('checked') )
+			count++;
+		
+		if ( $("#attending_sun6").prop('checked'))
+			count++;
 	}
 	
 	//console.log(count);
 	cost = count * 10;
 	document.getElementById("test_id").value = cost;
     $("#totalcost").html("$"+cost);
+	
+	if ( adults > 0 )
+	{
+		$("#numAdults").html( "Adult Days: " + count);
+	}
     
 }
 
