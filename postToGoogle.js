@@ -130,7 +130,7 @@ function registerPerson (name, age, satp, sunp, satlunches, satboxes, sunlunches
     var sundinner = sunboxes;
 	
 	
-    var address = $("#address").val();
+    var address = $("#address1").val();
     var city = $("#city").val();
     var state = $("#state").val();
     var zip = $("#zip").val();
@@ -303,7 +303,7 @@ function postToGoogle() {
 			break; // done - no more entries
 		
 		var issat = "#attending_sat" + i;
-		var issun = "#attending_sat" + i;
+		var issun = "#attending_sun" + i;
 		
 		var satlunch = "#lunch_sat" + i;
 		var sunlunch = "#lunch_sun" + i;
