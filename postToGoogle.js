@@ -164,7 +164,7 @@ function logPerson (groupfamilyname, name, age, sat, sun, satlunch, sunlunch, sa
 
 	var msg1 = groupfamilyname + ", " + name + " " + age + " " + phone + " " + altphone + " " + email + " " + center + " " + totalcost;
 	var msg2 = groupfamilyname + ", " + name + " sat: " + sat + " sun: " + sun + " satlunch: " + satlunch + " satdinner: " + satdinner + " sunlunch: " + sunlunch + " sundinner: " + sundinner;
-	var msg3 = groupfamilyname + ", " + name + " address: " + address + " " + city + " " + zip + "\n";
+	var msg3 = groupfamilyname + ", " + name + " address: " + address + " " + city + " " + state + " " + zip + "\n";
 	
 	$.ajax({
 		type: "POST",
