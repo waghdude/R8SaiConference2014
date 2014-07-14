@@ -195,6 +195,7 @@ function registerPerson (name, age, satp, sunp, satlunches, satboxes, sunlunches
                 "entry.1868561769"  : totalcost},
             type: "POST",
             dataType: "xml",
+			async: false,
             timeout: 5000,
             success: function(data, textStatus ){
                 alert('request successful');
