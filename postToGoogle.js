@@ -141,38 +141,30 @@ function removeperson(which) {
 
 function logPerson (groupfamilyname, name, age, sat, sun, satlunch, sunlunch, satdinner, sundinner, address, city, state, zip, phone, altphone, email, center, totalcost, id)
 {
-/*
-	var params = groupfamilyname + "," + name + " " + age + " address: " + address + " " + city + " " + zip + " " + phone + " " + altphone + " " + email + " " + center + " " + totalcost;
-	
-	$.ajax({
-		type: "POST",
-		url: "http://region8saicenters.org/Conference/2014/logRetreatInfo.php",
-		data: { "msg": params },
-		dataType: "xml",
-		async: true,
-		timeout: 5000,
-		success: function(data, textStatus ){
-			console.log(textStatus);
-		},
-		error: function(xhr, textStatus, errorThrown){
-			console.log(xhr);
-			console.log(textStatus);
-			console.log(errorThrown);
-		}
-	  });
-*/
-
-	var msg1 = groupfamilyname + ", " + name + " " + age + " " + phone + " " + altphone + " " + email + " " + center + " " + totalcost;
-	var msg2 = groupfamilyname + ", " + name + " sat: " + sat + " sun: " + sun + " satlunch: " + satlunch + " satdinner: " + satdinner + " sunlunch: " + sunlunch + " sundinner: " + sundinner;
-	var msg3 = groupfamilyname + ", " + name + " address: " + address + " " + city + " " + state + " " + zip + "\n";
-	
 	$.ajax({
 		type: "POST",
 		url: "http://region8saicenters.org/Conference/2014/logRetreatInfo.php",
 		data: {
-			"msg1" : msg1,
-			"msg2" : msg2,
-			"msg3" : msg3
+		
+			"groupfamilyname" :	groupfamilyname,
+		    "name"		: 		name,
+		    "age"		: 		age,
+		    "sat"		: 		sat,
+		    "sun"		: 		sun,
+		    "satlunch"	: 		satlunch,
+		    "sunlunch"	: 		sunlunch,
+		    "satdinner" : 		satdinner,
+		    "sundinner" : 		sundinner,
+		    "address"	: 		address,
+		    "city"		: 		city,
+		    "state"		: 		state,
+		    "zip"		: 		zip,
+		    "phone"		: 		phone,
+		    "altphone"	: 		altphone,
+		    "email"		:       email,          
+		    "center"	:		center, 
+		    "totalcost"	:		totalcost
+			
 			},
 		dataType: "xml",
 		async: true,
@@ -220,7 +212,8 @@ function registerPerson (name, age, satp, sunp, satlunches, satboxes, sunlunches
 	}
 	
 	logPerson( groupfamilyname, name, age, sat, sun, satlunch, sunlunch, satdinner, sundinner, address, city, state, zip, phone, altphone, email, center, totalcost, id);
-	
+
+		/*
     $.ajax({
             url: "https://docs.google.com/forms/d/1QeCq3i5-yayVUalG8zULImKBt1IZpW4DN3dvWvldgbM/formResponse",
             data: {
@@ -256,6 +249,8 @@ function registerPerson (name, age, satp, sunp, satlunches, satboxes, sunlunches
             }
             
         });
+		
+		*/
 }
 
 

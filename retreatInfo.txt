@@ -1,1 +1,24 @@
 Log File for retreat registration
+Jul 14 11:30:54 Jeevaprakash, Sri   9492850822  Sri.jeeva@gmail.com Tustin $10 - paypal
+		Jeevaprakash, Sri sat: 1 sun:  satlunch: 1 satdinner: 1 sunlunch:  sundinner: 
+		Jeevaprakash, Sri address: 16 calavera Irvine 92606
+
+Jul 14 11:30:54 Jeevaprakash, Anujan M 18 9492850822  Sri.jeeva@gmail.com Tustin 
+		Jeevaprakash, Anujan sat: 1 sun:  satlunch: 1 satdinner: 1 sunlunch:  sundinner: 
+		Jeevaprakash, Anujan address: 16 calavera Irvine 92606
+
+Jul 14 13:09:07 Jeevaprakash, Sri   9495521520  Sri.jeeva@gmail.com Tustin $10 - paypal
+		Jeevaprakash, Sri sat: 1 sun:  satlunch: 1 satdinner: 1 sunlunch:  sundinner: 
+		Jeevaprakash, Sri address: 16 calavera Irvine 92606
+
+Jul 17 16:00:48 Kalle, Mamata   805-388-9360  hemukalle36@gmail.com Thousand Oaks 
+		Kalle, Mamata sat: 1 sun: 1 satlunch: 1 satdinner: 1 sunlunch: 1 sundinner: 1
+		Kalle, Mamata address: 42024 Village 42 Camarillo CA 93012
+
+Jul 17 16:00:48 Kalle, Hemu   805-388-9360  hemukalle36@gmail.com Thousand Oaks $40 - check
+		Kalle, Hemu sat: 1 sun: 1 satlunch: 1 satdinner: 1 sunlunch: 1 sundinner: 1
+		Kalle, Hemu address: 42024 Village 42 Camarillo CA 93012
+
+Jul 18 16:54:44 Pearson, Doug   808-479-9560  douglaspearson@msn.com Oahu-Hawaii $20 - check
+		Pearson, Doug sat: 1 sun: 1 satlunch: 1 satdinner: 1 sunlunch: 1 sundinner: 1
+		Pearson, Doug address: 1072 Kamehame Dr Honolulu HI 96825
